@@ -1,31 +1,36 @@
-# Welcome to your new OSS project
+Legion::Settings
+=====
 
-This project currently has the base documentation files required.  Replace this
-file with your own README.md.
+Legion::Settings is a hash like class used to store LegionIO Settings. 
 
-## Files included
+Supported Ruby versions and implementations
+------------------------------------------------
 
-**CODE_OF_CONDUCT.md**
+Legion::Json should work identically on:
 
-Use without changes
+* JRuby 9.2+
+* Ruby 2.4+
 
-**INDIVIDUAL_CONTRIBUTOR_LICENSE.md**
 
-Use without changes
+Installation and Usage
+------------------------
 
-**CONTRIBUTING.md**
+You can verify your installation using this piece of code:
 
-This file has some portions that are required and others that can be customized.
-Customize the Coding Standards section to mention the languages used by your project.
-Feel free to add any rules and requirements that you would like people to follow
-when contributing to your project.
+```bash
+gem install legion-json
+```
 
-**NOTICE.txt**
+```ruby
+require 'legion-settings'
+Legion::Settings.load(config_dir: './') # will automatically load json files it has access to inside this dir
 
-This file is needed if your project is licensed under the Apache 2.0 license.  
-If you are using this license, fill it out according to the prompts.  Otherwise,
-delete this file.
+Legion::Settings[:client][:hostname]
+Legion::Settings[:client][:new_attribute] = 'foobar'
 
-## Additional Repo Updates
+```
 
-Make sure that you have a project description and appropriate repository topics.
+Authors
+----------
+
+* [Matthew Iverson](https://github.com/Esity) - current maintainer
