@@ -3,7 +3,7 @@ Copyright 2021 Optum
 
 Project Description:
 ====================
-Settings gem for the LegionIO framework
+A gem written to handle LegionIO Settings in a consistent way across extensions
 
 Author(s):
 Esity
