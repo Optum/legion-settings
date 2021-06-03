@@ -24,11 +24,11 @@ module Legion
       end
 
       def [](key)
-        Legion::Logging.info('Legion::Settings was not loading, auto loading now!') if @loader.nil?
+        logger.info('Legion::Settings was not loading, auto loading now!') if @loader.nil?
         @loader = load if @loader.nil?
         @loader[key]
       rescue NoMethodError, TypeError
-        Legion::Logging.fatal 'rescue inside [](key)'
+        logger.fatal 'rescue inside [](key)'
         nil
       end
 
@@ -42,6 +42,15 @@ module Legion
         thing = {}
         thing[key.to_sym] = hash
         @loader.load_module_settings(thing)
+      end
+
+      def logger
+        @logger = if ::Legion.const_defined?('Logging')
+                    ::Legion::Logging
+                  else
+                    require 'logger'
+                    ::Logger.new($stdout)
+                  end
       end
     end
   end
