@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
     'wiki_uri' => 'https://github.com/Optum/legion-settings/wiki'
   }
 
-  spec.add_dependency 'legion-json'
+  spec.add_dependency 'legion-json', '>= 1.2'
 end
