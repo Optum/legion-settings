@@ -14,7 +14,7 @@ module Legion
       end
 
       def self.linux?
-        OS.unix? and !OS.mac?
+        OS.unix? && !OS.mac?
       end
 
       def self.jruby?
