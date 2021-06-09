@@ -36,22 +36,6 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - run: bundle exec rspec
-  rspec-jruby:
-    needs: rspec
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest ]
-        ruby: [ jruby, jruby-head]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: false
-      - run: gem update bundler
-      - run:  JRUBY_OPTS="--debug" bundler exec rspec
   rspec-truffleruby:
     needs: rspec
     strategy:
