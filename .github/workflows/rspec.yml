@@ -50,6 +50,8 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+      - run: gem install bundler gem
+      - run: bundle update
       - run:  JRUBY_OPTS="--debug" bundle exec rspec
   rspec-truffleruby:
     needs: rspec
