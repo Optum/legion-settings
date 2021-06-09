@@ -51,8 +51,7 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: false
       - run: gem update bundler
-      - run: bundle update
-      - run:  JRUBY_OPTS="--debug" bundle exec rspec
+      - run:  JRUBY_OPTS="--debug" bundler exec rspec
   rspec-truffleruby:
     needs: rspec
     strategy:
